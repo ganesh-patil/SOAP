@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<definitions name="NetPuzzle" targetNamespace="urn:NetPuzzle" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:enterprise.soap.sforce.com" xmlns:fns="urn:fault.enterprise.soap.sforce.com" xmlns:ens="urn:sobject.enterprise.soap.sforce.com">
+<message name="getPuzzle">
+<part name="difficulty" type="xsd:int" />
+</message>
+<message name="getPuzzleResponse">
+<part name="return" type="string" />
+</message>
+<portType name="NetPuzzlePort">
+<operation name="getPuzzle">
+    <input message="typens:getPuzzle" />
+    <output message="typens:getPuzzleResponse" />
+</operation>
+</portType>
+<binding name="NetPuzzleBinding" type="typens:NetPuzzlePort">
+<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+<operation name="getPuzzle">
+    <soap:operation soapAction="urn:NetPuzzleAction" />
+    <input>
+        <soap:body use="encoded" namespace="urn:NetPuzzle"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+    </input>
+    <output>
+        <soap:body use="encoded" namespace="urn:NetPuzzle"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+    </output>
+</operation>
+</binding>
+<service name="NetPuzzleService">
+<port name="NetPuzzlePort" binding="typens:NetPuzzleBinding">
+    <soap:address location="http://yourserver.com/server1.php" />
+</port>
+</service>
+        </definitions>
+
