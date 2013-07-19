@@ -1,36 +1,157 @@
 <?xml version="1.0"?>
 
-<definitions name="NetPuzzle" targetNamespace="urn:NetPuzzle" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:enterprise.soap.sforce.com" xmlns:fns="urn:fault.enterprise.soap.sforce.com" xmlns:ens="urn:sobject.enterprise.soap.sforce.com">
-<message name="getPuzzle">
-<part name="difficulty" type="xsd:int" />
-</message>
-<message name="getPuzzleResponse">
-<part name="return" type="string" />
-</message>
-<portType name="NetPuzzlePort">
-<operation name="getPuzzle">
-    <input message="typens:getPuzzle" />
-    <output message="typens:getPuzzleResponse" />
-</operation>
-</portType>
-<binding name="NetPuzzleBinding" type="typens:NetPuzzlePort">
-<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
-<operation name="getPuzzle">
-    <soap:operation soapAction="urn:NetPuzzleAction" />
-    <input>
+<definitions name="NetPuzzle" targetNamespace="urn:NetPuzzle" xmlns:typens="urn:NetPuzzle"   xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+    <message name="getPuzzle">
+
+        <part name="difficulty" type="xsd:int" />
+
+    </message>
+    <message name="login">
+
+        <part name="difficulty" type="xsd:array" />
+
+    </message>
+    <message name="create">
+
+        <part name="difficulty" type="xsd:array" />
+
+    </message>
+    <message name="update">
+
+        <part name="difficulty" type="xsd:array" />
+
+    </message>
+    <message name="delete">
+
+        <part name="difficulty" type="xsd:string" />
+
+    </message>
+
+    <message name="getPuzzleResponse">
+
+        <part name="return" type="string" />
+
+    </message>
+    <message name="getLoginResponse">
+
+        <part name="return" type="int" />
+
+    </message>
+    <message name="getCreateResponse">
+
+       <part name="return" type="int" />
+
+   </message>
+    <message name="getUpdateResponse">
+
+        <part name="return" type="int" />
+
+    </message>
+    <message name="getDeleteResponse">
+
+        <part name="return" type="int" />
+
+    </message>
+    <portType name="NetPuzzlePort">
+
+        <operation name="getPuzzle">
+
+            <input message="typens:getPuzzle" />
+
+            <output message="typens:getPuzzleResponse" />
+
+        </operation>
+        <operation name="login">
+
+            <input message="typens:login" />
+
+            <output message="typens:getLoginResponse" />
+
+        </operation>
+        <operation name="create">
+
+            <input message="typens:create" />
+
+            <output message="typens:getCreateResponse" />
+
+        </operation>
+        <operation name="update">
+
+            <input message="typens:update" />
+
+            <output message="typens:getUpdateResponse" />
+
+        </operation>
+        <operation name="delete">
+
+            <input message="typens:delete" />
+
+            <output message="typens:getDeleteResponse" />
+
+        </operation>
+
+    </portType>
+
+ <binding name="NetPuzzleBinding" type="typens:NetPuzzlePort">
+ <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+   <operation name="getPuzzle">
+       <soap:operation soapAction="urn:NetPuzzleAction" />
+       <input>
+            <soap:body use="encoded" namespace="urn:NetPuzzle"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+       </input>
+       <output>
         <soap:body use="encoded" namespace="urn:NetPuzzle"
                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-    </input>
-    <output>
-        <soap:body use="encoded" namespace="urn:NetPuzzle"
-                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-    </output>
-</operation>
-</binding>
-<service name="NetPuzzleService">
-<port name="NetPuzzlePort" binding="typens:NetPuzzleBinding">
-    <soap:address location="http://yourserver.com/server1.php" />
-</port>
-</service>
-        </definitions>
+       </output>
+ </operation>
+
+ <operation name="login">
+         <soap:operation soapAction="urn:NetPuzzleAction" />
+         <input>
+             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+         </input>
+         <output>
+             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+         </output>
+ </operation>
+
+     <operation name="create">
+         <soap:operation soapAction="urn:NetPuzzleAction" />
+         <input>
+             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+         </input>
+         <output>
+             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+         </output>
+     </operation>
+
+     <operation name="update">
+        <soap:operation soapAction="urn:NetPuzzleAction" />
+         <input>
+          <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+         </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </output>
+     </operation>
+     <operation name="delete">
+         <soap:operation soapAction="urn:NetPuzzleAction" />
+         <input>
+             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+         </input>
+         <output>
+             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+         </output>
+     </operation>
+ </binding>
+
+ <service name="NetPuzzleService">
+    <port name="NetPuzzlePort" binding="typens:NetPuzzleBinding">
+       <soap:address location="http://soapclient.webonise.com/server.php" />
+    </port>
+ </service>
+
+</definitions>
 
