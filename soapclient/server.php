@@ -1,11 +1,5 @@
 <?php
-function getPuzzle($difficulty) {
-    $puzzles[1][] = "What is the best web mag in the world?";
-    $puzzles[2][] = "What is the air-speed velocity of an unladen swallow?";
-    $puzzles[3][] = "What is the meaning of life?";
-    $randpuz = array_rand($puzzles[$difficulty]);
-    return $puzzles[$difficulty][$randpuz];
-}
+
 
 function create($user) {
     $link = mysql_connect('localhost', 'root', 'webonise6186');
@@ -79,7 +73,7 @@ function delete($token) {
 }
 
 $server = new SoapServer("myxml.wsdl");
-$server->addFunction(array("login","getPuzzle","create","update","delete"));
+$server->addFunction(array("login","create","update","delete"));
 $server->handle();
 
 

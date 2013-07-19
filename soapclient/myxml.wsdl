@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<definitions name="NetPuzzle" targetNamespace="urn:NetPuzzle" xmlns:typens="urn:NetPuzzle"   xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns="http://schemas.xmlsoap.org/wsdl/">
+<definitions name="TestApi" targetNamespace="urn:TestApi" xmlns:typens="urn:TestApi"   xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns="http://schemas.xmlsoap.org/wsdl/">
 
     <message name="getPuzzle">
 
@@ -53,7 +53,7 @@
         <part name="return" type="int" />
 
     </message>
-    <portType name="NetPuzzlePort">
+    <portType name="TestApiPort">
 
         <operation name="getPuzzle">
 
@@ -93,62 +93,62 @@
 
     </portType>
 
- <binding name="NetPuzzleBinding" type="typens:NetPuzzlePort">
+ <binding name="TestApiBinding" type="typens:TestApiPort">
  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
    <operation name="getPuzzle">
-       <soap:operation soapAction="urn:NetPuzzleAction" />
+       <soap:operation soapAction="urn:TestApiAction" />
        <input>
-            <soap:body use="encoded" namespace="urn:NetPuzzle"
+            <soap:body use="encoded" namespace="urn:TestApi"
              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
        </input>
        <output>
-        <soap:body use="encoded" namespace="urn:NetPuzzle"
+        <soap:body use="encoded" namespace="urn:TestApi"
                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
        </output>
  </operation>
 
  <operation name="login">
-         <soap:operation soapAction="urn:NetPuzzleAction" />
+         <soap:operation soapAction="urn:TestApiAction" />
          <input>
-             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+             <soap:body use="encoded" namespace="urn:TestApi" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
          </input>
          <output>
-             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+             <soap:body use="encoded" namespace="urn:TestApi" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
          </output>
  </operation>
 
      <operation name="create">
-         <soap:operation soapAction="urn:NetPuzzleAction" />
+         <soap:operation soapAction="urn:TestApiAction" />
          <input>
-             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+             <soap:body use="encoded" namespace="urn:TestApi" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
          </input>
          <output>
-             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+             <soap:body use="encoded" namespace="urn:TestApi" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
          </output>
      </operation>
 
      <operation name="update">
-        <soap:operation soapAction="urn:NetPuzzleAction" />
+        <soap:operation soapAction="urn:TestApiAction" />
          <input>
-          <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+          <soap:body use="encoded" namespace="urn:TestApi" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
          </input>
         <output>
-          <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+          <soap:body use="encoded" namespace="urn:TestApi" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
         </output>
      </operation>
      <operation name="delete">
-         <soap:operation soapAction="urn:NetPuzzleAction" />
+         <soap:operation soapAction="urn:TestApiAction" />
          <input>
-             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+             <soap:body use="encoded" namespace="urn:TestApi" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
          </input>
          <output>
-             <soap:body use="encoded" namespace="urn:NetPuzzle" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+             <soap:body use="encoded" namespace="urn:TestApi" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
          </output>
      </operation>
  </binding>
 
- <service name="NetPuzzleService">
-    <port name="NetPuzzlePort" binding="typens:NetPuzzleBinding">
+ <service name="TestApiService">
+    <port name="TestApiPort" binding="typens:TestApiBinding">
        <soap:address location="http://soapclient.webonise.com/server.php" />
     </port>
  </service>
