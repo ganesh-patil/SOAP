@@ -149,7 +149,7 @@
 
  <service name="TestApiService">
     <port name="TestApiPort" binding="typens:TestApiBinding">
-       <soap:address location="http://soapclient.webonise.com/server.php" />
+       <soap:address location="http://soap.webonise.com/server.php" />
     </port>
  </service>
 

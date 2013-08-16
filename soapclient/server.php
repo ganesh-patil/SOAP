@@ -2,7 +2,7 @@
 
 
 function create($user) {
-    $link = mysql_connect('localhost', 'root', 'webonise6186');
+    $link = mysql_connect('localhost', 'root', 'ganesh');
 
     if (!$link) {
         return 0;
@@ -20,7 +20,7 @@ function create($user) {
 }
 
 function login($userDetails) {
-    $link = mysql_connect('localhost', 'root', 'webonise6186');
+    $link = mysql_connect('localhost', 'root', 'ganesh');
 
     if (!$link) {
         return "could not connect";
@@ -35,13 +35,13 @@ function login($userDetails) {
     $result=mysql_query($query);
     $new=array();
     while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
-        $new=$row[3];
+        $new=$row[2];
     }
     return $new;
 }
 
 function update($userDetails) {
-    $link = mysql_connect('localhost', 'root', 'webonise6186');
+    $link = mysql_connect('localhost', 'root', 'ganesh');
 
     if (!$link) {
         return 0;
@@ -58,7 +58,7 @@ function update($userDetails) {
     return $result;
 }
 function delete($token) {
-    $link = mysql_connect('localhost', 'root', 'webonise6186');
+    $link = mysql_connect('localhost', 'root', 'ganesh');
 
     if (!$link) {
         return 0;

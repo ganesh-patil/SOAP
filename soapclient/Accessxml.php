@@ -36,5 +36,5 @@ try {
     }
 }
 catch (Exception $e){
-    var_dump($e->getMessage);
+    var_dump($e);
 }
